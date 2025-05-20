@@ -1,104 +1,109 @@
-# 🎤 Audio Emotion Detection using Machine Learning
+# 🎧 Emotion-Based Playlist Generator using Voice Input
 
-This project is a **voice-based emotion recognition system** built from scratch using Python. It classifies emotions (like happy, sad, angry, etc.) from audio recordings using **MFCC features** and a **Random Forest Classifier**, without relying on any pretrained models.
+This project is an intelligent music recommendation system that detects the user's **emotion from voice input** and plays a **matching playlist** based on the mood. It uses audio processing and machine learning to classify emotions from recorded speech and recommend songs accordingly.
 
 ---
 
-## 📌 Features
+## 🚀 Features
 
-- 🔊 **Custom Audio Training** – Model is trained using your own voice samples.
-- 🎯 **Emotion Classification** – Detects basic emotions (e.g., happy, sad, angry).
-- 🧠 **No Pretrained Model Used** – Everything is built and trained from scratch.
-- 📈 **Exportable Model** – Trained model is saved for future predictions using `joblib`.
+- 🎤 **Voice Input-Based Emotion Detection**
+- 🧠 **Trained from Scratch** using your voice recordings (no pretrained model)
+- 🎼 **Emotion-Based Playlist Generator** (happy, sad, angry, etc.)
+- 💾 **Model Export** using `joblib` for later predictions
+- 📊 **Real-time Emotion Prediction** from .wav audio files
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **Python**  
-- **scikit-learn** – ML model training and evaluation  
-- **librosa** – Audio feature extraction (MFCC)  
-- **NumPy & Pandas** – Data handling  
-- **joblib** – Model serialization  
-- **Jupyter Notebook** – Experimentation and visualization
+- **Python**
+- **librosa** – Audio feature extraction (MFCC)
+- **scikit-learn** – Model training (Random Forest)
+- **joblib** – Saving the model
+- **pandas & numpy** – Data handling
+- **os, soundfile** – File I/O
+- (Optional) **pygame/vlc** – For playing music automatically
 
 ---
 
 ## 📁 Folder Structure
 
 ```
-📦audio-emotion-detector
- ┣ 📂 recordings/           # Raw audio files (.wav)
- ┣ 📂 extracted_features/   # Extracted MFCC features
- ┣ 📜 emotion_model.pkl     # Exported trained model
- ┣ 📜 train.py              # Script to train the model
- ┣ 📜 predict.py            # Predict emotion from a new audio
- ┣ 📜 utils.py              # Helper functions
- ┗ 📜 README.md             # Project documentation
+📦emotion-playlist-generator
+ ┣ 📂 recordings/             # Your voice recordings (.wav)
+ ┣ 📂 playlists/              # Song folders by emotion
+ ┣ 📜 emotion_model.pkl       # Trained ML model
+ ┣ 📜 train.py                # Trains the model
+ ┣ 📜 predict_and_play.py     # Predicts emotion & plays playlist
+ ┣ 📜 utils.py                # Helper code
+ ┗ 📜 README.md               # Project documentation
 ```
 
 ---
 
-## 🧪 How It Works
+## 🔧 How It Works
 
-1. **Record voice samples** labeled with emotions (e.g., "happy_1.wav", "sad_1.wav").
-2. **Extract MFCC features** from each audio using `librosa`.
-3. **Train a Random Forest Classifier** using `scikit-learn`.
-4. **Save the trained model** using `joblib`.
-5. **Predict** emotion from new voice inputs using the saved model.
+1. 🎙️ **User records voice** expressing an emotion.
+2. 📊 **MFCC features** are extracted from the voice using `librosa`.
+3. 🌲 A **Random Forest classifier** is trained on your labeled voice samples.
+4. 🧠 The model **predicts emotion** from a new audio input.
+5. 🎵 The system **plays a song** from the playlist that matches the detected emotion.
 
 ---
 
-## ▶️ Run the Project
+## ▶️ Getting Started
 
-### 1. Install dependencies
+### 1. Install Dependencies
 ```bash
-pip install numpy pandas librosa scikit-learn joblib
+pip install numpy pandas librosa scikit-learn joblib soundfile
 ```
 
-### 2. Record or add `.wav` audio files to `/recordings/` folder.
+### 2. Record Audio Samples
+Place `.wav` files labeled with emotions (e.g., `happy_1.wav`, `sad_2.wav`) in the `recordings/` folder.
 
-### 3. Train the model
+### 3. Train the Model
 ```bash
 python train.py
 ```
 
-### 4. Predict emotion from a new voice sample
+### 4. Predict Emotion and Play Playlist
 ```bash
-python predict.py your_audio_file.wav
+python predict_and_play.py your_audio_file.wav
 ```
 
 ---
 
-## 📊 Sample Emotions (can be customized)
+## 📊 Supported Emotions
+
 - Happy  
 - Sad  
 - Angry  
-- Neutral  
+- Neutral
 
-> You can expand the dataset with your own voice samples and labels.
-
----
-
-## 💡 Learning Highlights
-
-- Hands-on experience with audio signal processing  
-- Understanding MFCC and how voice can be converted into numerical features  
-- End-to-end supervised ML pipeline  
-- Model export and prediction without external tools
+> You can extend this list by adding more labeled voice samples and playlists.
 
 ---
 
-## 🧠 Future Improvements
+## 💡 What You’ll Learn
 
-- Add more emotion categories  
-- Integrate deep learning models (like CNN or LSTM)  
-- Build a simple web interface for real-time predictions
+- How to extract meaningful features from audio
+- How to build a supervised ML pipeline from scratch
+- Hands-on with `scikit-learn`, `librosa`, and `joblib`
+- Real-world integration of ML with media automation
+
+---
+
+## 🔮 Future Enhancements
+
+- Add deep learning support (CNN/LSTM)
+- Add a web UI for recording and recommendations
+- Improve emotion detection accuracy with larger datasets
 
 ---
 
 ## 👨‍💻 Author
 
 **Mukul Mehra**  
-Email: mukulmehra681@gmail.com  
-GitHub: [muks79](https://github.com/muks79)
+📧 mukulmehra681@gmail.com  
+🔗 GitHub: [muks79](https://github.com/muks79)
+
