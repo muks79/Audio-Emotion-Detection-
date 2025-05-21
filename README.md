@@ -1,109 +1,126 @@
 # 🎧 Emotion-Based Playlist Generator using Voice Input
 
-This project is an intelligent music recommendation system that detects the user's **emotion from voice input** and plays a **matching playlist** based on the mood. It uses audio processing and machine learning to classify emotions from recorded speech and recommend songs accordingly.
+This project detects the **emotion** in a user's **voice recording (.wav)** and recommends a **music playlist** that matches the mood. Built using **Python**, **Machine Learning**, and **Streamlit**, it includes custom-trained models and a simple web interface for real-time emotion prediction.
 
 ---
 
-## 🚀 Features
-
-- 🎤 **Voice Input-Based Emotion Detection**
-- 🧠 **Trained from Scratch** using your voice recordings (no pretrained model)
-- 🎼 **Emotion-Based Playlist Generator** (happy, sad, angry, etc.)
-- 💾 **Model Export** using `joblib` for later predictions
-- 📊 **Real-time Emotion Prediction** from .wav audio files
-
----
-
-## 🛠️ Technologies Used
-
-- **Python**
-- **librosa** – Audio feature extraction (MFCC)
-- **scikit-learn** – Model training (Random Forest)
-- **joblib** – Saving the model
-- **pandas & numpy** – Data handling
-- **os, soundfile** – File I/O
-- (Optional) **pygame/vlc** – For playing music automatically
-
----
-
-## 📁 Folder Structure
+## 📁 Project Structure
 
 ```
-📦emotion-playlist-generator
- ┣ 📂 recordings/             # Your voice recordings (.wav)
- ┣ 📂 playlists/              # Song folders by emotion
- ┣ 📜 emotion_model.pkl       # Trained ML model
- ┣ 📜 train.py                # Trains the model
- ┣ 📜 predict_and_play.py     # Predicts emotion & plays playlist
- ┣ 📜 utils.py                # Helper code
- ┗ 📜 README.md               # Project documentation
+Emotion-Based-Playlist-Generator/
+├── audio_dataset/
+│   ├── happy/
+│   │   ├── happy1.wav, ...
+│   ├── sad/
+│   │   ├── sad1.wav, ...
+│   ├── angry/
+│   ├── fear/
+│   └── surprise/
+├── app.py               # Streamlit UI
+├── train.py             # Model training script
+├── predict.py           # Emotion prediction logic
+├── emotion_model.pkl    # Saved ML model
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## 🔧 How It Works
+## 🧠 Features
 
-1. 🎙️ **User records voice** expressing an emotion.
-2. 📊 **MFCC features** are extracted from the voice using `librosa`.
-3. 🌲 A **Random Forest classifier** is trained on your labeled voice samples.
-4. 🧠 The model **predicts emotion** from a new audio input.
-5. 🎵 The system **plays a song** from the playlist that matches the detected emotion.
+- 🎙️ Record/upload `.wav` audio
+- 🤖 ML-based emotion detection (happy, sad, angry, fear, surprise)
+- 🎵 Recommend a mood-based YouTube playlist
+- 😃 Streamlit UI with emojis and visual feedback
 
 ---
 
-## ▶️ Getting Started
+## 🔧 Requirements
 
-### 1. Install Dependencies
+Make sure you have Python installed (>= 3.8). Then install dependencies:
+
 ```bash
-pip install numpy pandas librosa scikit-learn joblib soundfile
+pip install -r requirements.txt
 ```
 
-### 2. Record Audio Samples
-Place `.wav` files labeled with emotions (e.g., `happy_1.wav`, `sad_2.wav`) in the `recordings/` folder.
+---
 
-### 3. Train the Model
+## 🛠️ How to Run
+
+### 1. Add Training Data
+
+Add `.wav` files under `audio_dataset/` folder in subfolders like:
+
+- `happy/`, `sad/`, `angry/`, `fear/`, `surprise/`
+
+Ensure each class has **at least 2-3 `.wav` files**.
+
+### 2. Train the Model
+
 ```bash
 python train.py
 ```
 
-### 4. Predict Emotion and Play Playlist
+It creates `emotion_model.pkl`.
+
+### 3. Run the App
+
 ```bash
-python predict_and_play.py your_audio_file.wav
+streamlit run app.py
+```
+
+It opens a browser tab where you can:
+
+- Upload a `.wav` file
+- See predicted emotion and emoji
+- Get a matching music recommendation
+
+---
+
+## ✅ Sample .wav Files
+
+You can use open datasets like [RAVDESS](https://zenodo.org/record/1188976) or manually record samples using:
+
+```bash
+audacity / online voice recorders / mobile apps
+```
+
+Name your files like:
+
+```
+happy1.wav, sad1.wav, angry1.wav, etc.
 ```
 
 ---
 
-## 📊 Supported Emotions
+## 📌 Technologies Used
 
-- Happy  
-- Sad  
-- Angry  
-- Neutral
-
-> You can extend this list by adding more labeled voice samples and playlists.
-
----
-
-## 💡 What You’ll Learn
-
-- How to extract meaningful features from audio
-- How to build a supervised ML pipeline from scratch
-- Hands-on with `scikit-learn`, `librosa`, and `joblib`
-- Real-world integration of ML with media automation
+- Python 3
+- Streamlit
+- Librosa (audio processing)
+- scikit-learn (ML model)
+- NumPy / Pandas
+- Pickle (for saving models)
 
 ---
 
-## 🔮 Future Enhancements
+## 💡 Future Ideas
 
-- Add deep learning support (CNN/LSTM)
-- Add a web UI for recording and recommendations
-- Improve emotion detection accuracy with larger datasets
+- Add real-time recording
+- Suggest Spotify or JioSaavn playlists
+- Improve accuracy using deep learning models
+- Deploy using Streamlit Cloud or Hugging Face Spaces
 
 ---
 
-## 👨‍💻 Author
+## 🙋‍♂️ Author
 
 **Mukul Mehra**  
-📧 mukulmehra681@gmail.com  
+📫 [mukulmehra681@gmail.com](mailto:mukulmehra681@gmail.com)  
 🔗 GitHub: [muks79](https://github.com/muks79)
 
+---
+
+## 📜 License
+
+This project is open-source and free to use under the MIT License.
